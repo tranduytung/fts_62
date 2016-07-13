@@ -8,3 +8,16 @@ en:
   contact: "Contact"
   develop_by: "Developed by HEDSPI"
   welcome: "Welcome to Project 3"
+
+  login: "Login"
+  edit_profile: "Edit profile"
+  update_profile: "Update profile"
+  log_out: "Log out"
+
+  admin:
+    name_class: "Admin"
+    edit: "Edit"
+    log_out: "Log out"
+    login: "Log in"
+    edit_profile: "Edit profile"
+    update_profile: "Update profile"
