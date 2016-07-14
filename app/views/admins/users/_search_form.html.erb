@@ -1,0 +1,9 @@
+<div class="panel-body">
+  <%= search_form_for @search, url: admins_users_path do |f| %>
+    <div class="large-5 small-4">
+      <%= f.label :name_cont, t("search.user.name") %>
+      <%= f.text_field :name_cont, class: "form-control",
+        placeholder: t("search.user.name") %>
+    </div>
+  <% end %>
+</div>
