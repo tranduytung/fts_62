@@ -1,0 +1,38 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to t(:logo), root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t(:home), root_path %></li>
+        <li><%= link_to t(:help), help_path %></li>
+        <% if admin_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= current_admin.name %><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t("admin.edit"), edit_admin_registration_path %>
+              </li>
+              <li>
+                <%= link_to t("admin.log_out"), destroy_admin_session_path,
+                  method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t "admin.name_class" %><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t("admin.login"), new_admin_session_path %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
