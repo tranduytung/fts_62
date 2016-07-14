@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20160713090513) do
   create_table "admins", force: :cascade do |t|
     t.string   "name"
     t.string   "chatword_id"
-    t.string   "password_digest"
     t.string   "remember_digest"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

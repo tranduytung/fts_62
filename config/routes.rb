@@ -15,4 +15,8 @@ Rails.application.routes.draw do
       as: "edit_admin_registration"
     put "admins" => "admins/registrations#update", as: "admin_registration"
   end
+
+  namespace :admins do
+    resources :subjects, only: [:create, :new]
+  end
 end

@@ -3,7 +3,6 @@ class CreateAdmins < ActiveRecord::Migration
     create_table :admins do |t|
       t.string :name
       t.string :chatword_id
-      t.string :password_digest
       t.string :remember_digest
 
       t.timestamps null: false
