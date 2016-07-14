@@ -21,3 +21,14 @@ en:
     login: "Log in"
     edit_profile: "Edit profile"
     update_profile: "Update profile"
+
+  subject:
+    new_subject: "New Subject"
+    content: "Content: "
+    number_of_questions: "Exam number of questions"
+    duration: "Duration(minutes)"
+    submit: "Create subject"
+    add_fail: "Subject add failed"
+    add_success: "Subject add successfully"
+  flash:
+    error: "error"
