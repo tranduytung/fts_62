@@ -1,0 +1,22 @@
+<div class="people_form">
+  <div class="form_user">
+    <h1><%= t "user.name_class" %></h1>
+    <%= form_for @user, url: admins_add_peoples_path do |f| %>
+      <%= render "shared/error_messages", object: @user %>
+
+      <%= render "admins/add_peoples/form", f: f %>
+
+      <%= f.submit t("admin.add_people"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="form_admin">
+    <h1><%= t "admin.name_class" %></h1>
+    <%= form_for @admin, url: admins_add_peoples_path do |f| %>
+      <%= render "shared/error_messages", object: @admin %>
+
+      <%= render "admins/add_peoples/form", f: f %>
+
+      <%= f.submit t("admin.add_people"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

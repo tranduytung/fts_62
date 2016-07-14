@@ -3,7 +3,7 @@ Admin.create!(
   email: "admin@railstutorial.org",
   password: "12345678",
   password_confirmation: "12345678",
-  chatword_id: "11111111111111111111")
+  chatwork_id: "11111111111111111111")
 
 20.times do |n|
   name = Faker::Name.name
@@ -15,5 +15,5 @@ Admin.create!(
     email: email,
     password: password,
     password_confirmation: password,
-    chatword_id: chatword_id)
+    chatwork_id: chatword_id)
 end

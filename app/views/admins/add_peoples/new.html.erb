@@ -1,0 +1,7 @@
+<% provide :title, t("admin.add_people") %>
+<h1><%= t "admin.add_people" %></h1>
+
+<%= select_tag :people_type, options_for_select(Settings.people_type),
+  class: "form-control people_type" %>
+
+<%= render "admins/add_peoples/people_form" %>

@@ -11,8 +11,8 @@
       <%= f.label :email %><br/>
       <%= f.email_field :email, autofocus: true, class: "form-control" %>
 
-      <%= f.label :chatword_id %><br/>
-      <%= f.text_field :chatword_id, autofocus: true, class: "form-control" %>
+      <%= f.label :chatwork_id %><br/>
+      <%= f.text_field :chatwork_id, autofocus: true, class: "form-control" %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div><%= t :waiting, content: resource.unconfirmed_email %></div>

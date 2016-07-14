@@ -22,8 +22,15 @@ en:
     edit_profile: "Edit profile"
     update_profile: "Update profile"
     tool_box: "Tool Box"
-    user: "User"
     all_users: "All Users"
+    add_people: "Add new people"
+    user:
+      name: "User"
+      add_fail: "Add new user failed"
+      add_success: "Add new user successfully"
+    admin:
+      add_fail: "Add new admin failed"
+      add_success: "Add new admin successfully"
 
   subject:
     new_subject: "New Subject"

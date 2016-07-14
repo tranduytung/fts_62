@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160714062646) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
-    t.string   "chatword_id"
+    t.string   "chatwork_id"
     t.string   "remember_digest"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20160714062646) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "chatword_id"
+    t.string   "chatwork_id"
     t.string   "remember_digest"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
