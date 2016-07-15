@@ -8,6 +8,7 @@ en:
   contact: "Contact"
   develop_by: "Developed by HEDSPI"
   welcome: "Welcome to Project 3"
+  remove: "Remove"
 
   login: "Login"
   edit_profile: "Edit profile"
@@ -46,6 +47,18 @@ en:
     confirm: "You sure delete this subject?"
     delete_fail: "Subject delete failed"
     delete_success: "Subject detete successfully"
+
+  question:
+    new: "New question"
+    subject: "Subject"
+    content: "Content"
+    question_type: "Question type"
+    add_answer: "Add other answer"
+    add_question: "Add question"
+    remove: "Remove"
+    add_fail: "Add question failed"
+    add_success: "Add question successfully"
+    answer: "Answer"
 
   flash:
     error: "error"

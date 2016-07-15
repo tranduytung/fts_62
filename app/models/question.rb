@@ -5,4 +5,6 @@ class Question < ActiveRecord::Base
 
   has_many :answers, dependent: :destroy
   has_many :results, dependent: :destroy
+
+  enum question_type: [:single_choice, :multiple_choice, :text]
 end

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     root "users#index"
     resources :subjects
     resources :users, only: :index
+    resources :questions, only: [:create, :new, :index]
   end
 
   devise_for :users, controllers: {
