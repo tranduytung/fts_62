@@ -13,6 +13,10 @@ gem "bootstrap-sass"
 gem "devise"
 gem "faker"
 gem "cancancan"
+gem "ransack"
+gem "config"
+gem "kaminari"
+gem "kaminari-bootstrap", "~> 3.0.1"
 
 group :development, :test do
   gem "byebug"

@@ -17,12 +17,13 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
+    root "users#index"
     resources :subjects
+    resources :users, only: :index
   end
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
     registrations: "users/registrations"
   }, skip: :passwords
-
 end

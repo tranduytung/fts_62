@@ -21,6 +21,9 @@ en:
     login: "Log in"
     edit_profile: "Edit profile"
     update_profile: "Update profile"
+    tool_box: "Tool Box"
+    user: "User"
+    all_users: "All Users"
 
   subject:
     new_subject: "New Subject"
@@ -58,3 +61,7 @@ en:
 
   devise:
     minimum_password_length: "%{length} characters minimum"
+
+  search:
+    user:
+      name: "User name"
