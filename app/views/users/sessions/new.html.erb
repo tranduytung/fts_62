@@ -25,5 +25,8 @@
         <%= f.submit t("user.login"), class: "btn btn-primary" %>
       </div>
     <% end %>
+
+    <%= link_to t("user.login_github"), user_github_omniauth_authorize_path,
+      class: "btn btn-default col-md-4 pull-left" %>
   </div>
 </div>

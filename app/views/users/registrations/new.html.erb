@@ -12,20 +12,22 @@
       <%= f.text_field :name, autofocus: true, class: "form-control" %>
 
       <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true, class: "form-control"  %>
+      <%= f.email_field :email, autofocus: true, class: "form-control" %>
 
-      <%= f.label :chatword_id %><br/>
-      <%= f.text_field :chatword_id, autofocus: true, class: "form-control" %>
+      <%= f.label :chatwork_id %>
+      <%= f.text_field :chatwork_id, autofocus: true, class: "form-control" %>
 
-      <%= f.label :password %>
-      <%= t("devise.minimum_password_length",
-        length: @minimum_password_length) if @minimum_password_length %>
-      <%= f.password_field :password, autocomplete: "off",
-        class: "form-control" %>
+      <% if f.object.password_required? %>
+        <%= f.label :password %>
+        <%= t "devise.minimum_password_length",
+          length: @minimum_password_length if @minimum_password_length %>
+        <%= f.password_field :password, autocomplete: "off",
+          class: "form-control" %>
 
-      <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "off",
-        class: "form-control" %>
+        <%= f.label :password_confirmation %><br/>
+        <%= f.password_field :password_confirmation, autocomplete: "off",
+          class: "form-control" %>
+      <% end %>
 
       <div class="actions">
         <%= f.submit t("user.sign_up"), class: "btn btn-primary" %>
