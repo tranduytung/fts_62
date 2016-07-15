@@ -1,0 +1,10 @@
+<%= form_for [:users, @exam] do |f| %>
+<div class="col-md-6">
+<%= f.collection_select :subject_id, @subjects, :id, :content,
+  {include_blank: false}, class: "form-control" %>
+</div>
+<div class="col-md-3">
+<%= f.submit t("exam.create"),
+    class: "btn btn-primary col-md-4 col-md-offset-4" %>
+</div>
+<% end %>

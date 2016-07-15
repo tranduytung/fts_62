@@ -1,0 +1,34 @@
+<% provide :title, t("user.all_exams") %>
+<div class="row">
+  <h1><%= t "user.all_exams" %></h1>
+  <%= render "/users/exams/exam_form" %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="center"><%= t "exam.create_day" %></th>
+        <th class="center"><%= t "exam.subject" %></th>
+        <th class="center"><%= t "exam.status" %></th>
+        <th class="center"><%= t "exam.duration" %></th>
+        <th class="center"><%= t "exam.question_number" %></th>
+        <th class="center"><%= t "exam.spent_time" %></th>
+        <th class="center"><%= t "exam.score" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @exams.each do |exam| %>
+        <tr>
+          <td class="center"><%= exam.created_at %></td>
+          <td class="center"><%= exam.subject.content %></td>
+          <td class="center"><%= exam.status %></td>
+          <td class="center"><%= exam.subject.duration %></td>
+          <td class="center"><%= exam.subject.number_of_questions %></td>
+          <td class="center"><%= exam.spent_time %></td>
+          <td class="center"><%= exam.score %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= paginate @exams %>
+  </div>
+</div>
