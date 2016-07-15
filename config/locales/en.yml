@@ -53,11 +53,14 @@ en:
   user:
     name_class: "User"
     edit: "Edit"
-    log_out: "Log out"
-    login: "Log in"
+    log_out: "Sign out"
+    login: "Sign in"
+    login_github: "Sign in with Github"
     sign_up: "Sign up"
     edit_profile: "Edit profile"
     update_profile: "Update profile"
+    complete_registration: "You are almost there! Please fill in the required
+      fields to complete your registration"
 
   devise:
     minimum_password_length: "%{length} characters minimum"

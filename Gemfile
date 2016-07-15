@@ -17,6 +17,7 @@ gem "ransack"
 gem "config"
 gem "kaminari"
 gem "kaminari-bootstrap", "~> 3.0.1"
+gem "omniauth-github"
 
 group :development, :test do
   gem "byebug"
