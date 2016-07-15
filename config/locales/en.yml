@@ -61,6 +61,12 @@ en:
     add_fail: "Add question failed"
     add_success: "Add question successfully"
     answer: "Answer"
+    edit: "Edit question"
+    save_edit: "Save changes"
+    save_new: "New question"
+
+  answer:
+    existing_task_cant_be_blank: "existing answer can't be blank"
 
   flash:
     error: "error"

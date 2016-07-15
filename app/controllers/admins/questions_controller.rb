@@ -1,6 +1,7 @@
 class Admins::QuestionsController < ApplicationController
   load_and_authorize_resource
-  before_action :load_sources, only: :new
+  before_action :load_sources, only: [:new, :edit]
+  before_action :load_subject_form, only: [:edit, :update]
 
   def new
     @question.answers.build
@@ -23,13 +24,28 @@ class Admins::QuestionsController < ApplicationController
     end
   end
 
+  def update
+    if @question_form.validate params[:question].permit!
+      @question_form.save
+      flash[:success] = t "question.edit_success"
+      redirect_to edit_admins_questions_path @question
+    else
+      flash.now[:danger] = t "question.edit_fail"
+      render :edit
+    end
+  end
+
   private
   def question_params
-    params.require(:question).permit :content, :question_type, :subject_id
+    params.require(:question).permit :content, :question_type, :subject_id, :_destroy
   end
 
   def load_sources
     @question_types = Question.question_types
     @subjects = Subject.all
+  end
+
+  def load_subject_form
+    @question_form = QuestionForm.new @question
   end
 end
