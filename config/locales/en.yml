@@ -33,6 +33,13 @@ en:
     edit_subject: "Save changes"
     edit_success: "Subject edited successfully"
     edit_fail: "Subject edit failed"
+    all_subject: "All Subjects"
+    subject: "Subjects"
+    number_of_questions: "Number Of Questions"
+    duration: "Duration"
+    edit: "Edit"
+    delete: "Delete"
+    actions: "Action"
 
   flash:
     error: "error"

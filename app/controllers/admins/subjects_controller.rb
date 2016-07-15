@@ -1,5 +1,5 @@
 class Admins::SubjectsController < ApplicationController
-  load_and_authorize_resource except: [:destroy, :index, :show]
+  load_and_authorize_resource except: [:destroy, :show]
 
   def create
     if @subject.save
@@ -14,7 +14,7 @@ class Admins::SubjectsController < ApplicationController
   def update
     if @subject.update_attributes subject_params
       flash[:success] = t "subject.edit_success"
-      redirect_to [:admins, @subject]
+      redirect_to admins_subjects_path
     else
       flash[:danger] = t "subject.edit_failed"
       render :edit

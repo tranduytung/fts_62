@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    resources :subjects, except: [:destroy, :show, :index]
+    resources :subjects, except: [:destroy, :show]
   end
 end
