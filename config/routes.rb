@@ -19,4 +19,10 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :subjects, except: [:destroy, :show, :index]
   end
+
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations"
+  }, skip: :passwords
+
 end

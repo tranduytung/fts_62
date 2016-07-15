@@ -36,3 +36,15 @@ en:
 
   flash:
     error: "error"
+
+  user:
+    name_class: "User"
+    edit: "Edit"
+    log_out: "Log out"
+    login: "Log in"
+    sign_up: "Sign up"
+    edit_profile: "Edit profile"
+    update_profile: "Update profile"
+
+  devise:
+    minimum_password_length: "%{length} characters minimum"
