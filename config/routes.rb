@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    resources :subjects, except: [:destroy, :show]
+    resources :subjects
   end
 
   devise_for :users, controllers: {

@@ -1,5 +1,9 @@
 class Admins::SubjectsController < ApplicationController
-  load_and_authorize_resource except: [:destroy, :show]
+  load_and_authorize_resource
+
+  def show
+    @questions = @subject.questions
+  end
 
   def create
     if @subject.save
@@ -19,6 +23,13 @@ class Admins::SubjectsController < ApplicationController
       flash[:danger] = t "subject.edit_failed"
       render :edit
     end
+  end
+
+  def destroy
+    @subject.destroy ?
+      (flash[:success] = t "subject.delete_success") :
+      (flash[:danger] = t "subject.delete_fail")
+    redirect_to admins_subjects_path
   end
 
   private

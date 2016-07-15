@@ -13,7 +13,7 @@
   <tbody>
     <% @subjects.each do |subject| %>
       <tr>
-        <td><%= subject.content %></td>
+        <td><%= link_to subject.content, [:admins, subject] %></td>
         <td><%= subject.number_of_questions %></td>
         <td><%= subject.duration %></td>
         <td>
@@ -21,7 +21,8 @@
             class: "btn btn-info icon-trash icon-white" %>
         </td>
         <td>
-          <%= link_to t("subject.delete"), "#",
+          <%= link_to t("subject.delete"), admins_subject_path(subject),
+            method: :delete, data: {confirm: t("subject.confirm")},
             class: "btn btn-danger icon-trash icon-white" %>
         </td>
       </tr>

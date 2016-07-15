@@ -1,0 +1,25 @@
+<h1><%= link_to @subject.content, [:admins, @subject] %></h1>
+<hr/>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "questions" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><% link_to question.content, [:admins, question] %></td>
+        <td>
+          <%= link_to t("question.edit"), "#",
+            class: "btn btn-info icon-trash icon-white" %>
+        </td>
+        <td>
+          <%= link_to t("question.delete"), "#",
+            class: "btn btn-danger icon-trash icon-white" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr/>

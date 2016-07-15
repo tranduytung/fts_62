@@ -40,6 +40,9 @@ en:
     edit: "Edit"
     delete: "Delete"
     actions: "Action"
+    confirm: "You sure delete this subject?"
+    delete_fail: "Subject delete failed"
+    delete_success: "Subject detete successfully"
 
   flash:
     error: "error"
