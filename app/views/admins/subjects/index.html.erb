@@ -1,0 +1,30 @@
+<% provide :title, t("subject.all_subject") %>
+<h1><%= t "subject.all_subject" %></h1>
+<hr/>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "subject.subject" %></th>
+      <th><%= t "subject.number_of_questions" %></th>
+      <th><%= t "subject.duration" %></th>
+      <th colspan="2"><%= t "subject.actions" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.content %></td>
+        <td><%= subject.number_of_questions %></td>
+        <td><%= subject.duration %></td>
+        <td>
+          <%= link_to t("subject.edit"), edit_admins_subject_path(subject),
+            class: "btn btn-info icon-trash icon-white" %>
+        </td>
+        <td>
+          <%= link_to t("subject.delete"), "#",
+            class: "btn btn-danger icon-trash icon-white" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
