@@ -1,3 +1,6 @@
 admin:
   user:
    per_page: 5
+
+exam:
+  per_page: 5

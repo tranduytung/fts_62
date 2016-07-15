@@ -3,4 +3,6 @@ class Exam < ActiveRecord::Base
   belongs_to :subject
 
   has_many :results, dependent: :destroy
+
+  enum status: [:start, :testing, :unchecked, :checked]
 end
