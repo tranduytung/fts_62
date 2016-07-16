@@ -28,4 +28,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/callbacks"
   }, skip: :passwords
+
+  namespace :users do
+    resources :exams, only: :index
+  end
 end

@@ -74,6 +74,7 @@ en:
     update_profile: "Update profile"
     complete_registration: "You are almost there! Please fill in the required
       fields to complete your registration"
+    all_exams: "All Exams"
 
   devise:
     minimum_password_length: "%{length} characters minimum"
@@ -81,3 +82,19 @@ en:
   search:
     user:
       name: "User name"
+
+  exam:
+    create_day: "Created Date"
+    subject: "Subject"
+    status: "Status"
+    duration: "Duration"
+    question_number: "Question Number"
+    spent_time: "Spent Time"
+    score: "Score"
+
+  start: "Start"
+  testing: "Testing"
+  unchecked: "unchecked"
+  checked: "Checked"
+
+  not_authorized: "You are not authorized to access this page."

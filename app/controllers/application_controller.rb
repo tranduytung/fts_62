@@ -5,7 +5,17 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def current_ability
-    @current_ability ||= Ability.new current_admin if admin_signed_in?
+    @current_ability ||= Ability.new(
+      if admin_signed_in?
+        current_admin
+      elsif user_signed_in?
+        current_user
+      end)
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:danger] = t "not_authorized"
+    redirect_to root_url
   end
 
   protected
