@@ -21,7 +21,11 @@ function addForm() {
 
 function changeType() {
   var options = $('.field');
-  options.remove();
+  for(i = 0; i < options.length; i++){
+    $(options[i].querySelector('.remove-choose > a')).prev('input[type=hidden]').val('1');
+    $(options[i].querySelector('.remove-choose > a')).addClass('hidden');
+  }
+  options.addClass('hidden');
 }
 
 var prev;
@@ -31,7 +35,7 @@ $(document).on('focus', '.question-type', function() {
 
 $(document).on('change', '.question-type', function() {
   if($(this).val() == 'single_choice') {
-    $('.form-inline').remove();
+    changeType();
     $('.add_answer').show();
     var allCheckboxs = $('.correct');
     allCheckboxs.each(function(index, cb) {
@@ -41,14 +45,13 @@ $(document).on('change', '.question-type', function() {
       changeType();
     }
   } else if ($(this).val() == 'multiple_choice') {
-    $('.form-inline').remove();
+    changeType();
     $('.add_answer').show();
     if(prev == 'text'){
       changeType();
     }
   } else if($(this).val() == 'text') {
     var x = $(this).val();
-    console.log(x);
     changeType();
     addForm();
     var allCheckboxs = $('.correct');
