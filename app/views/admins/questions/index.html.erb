@@ -1,0 +1,20 @@
+<% provide :title, t("question.all_questions") %>
+<h1><%= t "question.all_questions" %></h1>
+<hr/>
+  <%= link_to t("question.new_question"), new_admins_question_path,
+    class: "btn btn-success icon-trash icon-white" %>
+<hr/>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "question.content" %></th>
+      <th><%= t "question.question_type" %></th>
+      <th><%= t "question.subject" %></th>
+      <th><%= t "question.is_approved" %></th>
+      <th colspan="2"><%= t "subject.actions" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @questions %>
+  </tbody>
+</table>

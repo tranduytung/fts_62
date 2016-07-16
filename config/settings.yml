@@ -1,6 +1,8 @@
 admin:
   user:
    per_page: 5
+  subject:
+    per_page: 10
 
 exam:
   per_page: 5

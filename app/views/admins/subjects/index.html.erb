@@ -1,6 +1,9 @@
 <% provide :title, t("subject.all_subject") %>
 <h1><%= t "subject.all_subject" %></h1>
 <hr/>
+<%= link_to t("subject.new_subject"), new_admins_subject_path,
+  class: "btn btn-success icon-trash icon-white" %>
+<hr/>
 <table class="table">
   <thead>
     <tr>
@@ -11,21 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @subjects.each do |subject| %>
-      <tr>
-        <td><%= link_to subject.content, [:admins, subject] %></td>
-        <td><%= subject.number_of_questions %></td>
-        <td><%= subject.duration %></td>
-        <td>
-          <%= link_to t("subject.edit"), edit_admins_subject_path(subject),
-            class: "btn btn-info icon-trash icon-white" %>
-        </td>
-        <td>
-          <%= link_to t("subject.delete"), admins_subject_path(subject),
-            method: :delete, data: {confirm: t("subject.confirm")},
-            class: "btn btn-danger icon-trash icon-white" %>
-        </td>
-      </tr>
-    <% end %>
+    <%= render @subjects %>
   </tbody>
 </table>
+<%= paginate @subjects %>

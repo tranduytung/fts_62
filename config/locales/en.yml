@@ -27,6 +27,10 @@ en:
     all_users: "All Users"
     exam: "Exam"
     all_exams: "All Exams"
+    subject: "Subject"
+    all_subjects: "All Subjects"
+    question: "Question"
+    all_questions: "All Questions"
 
   subject:
     new_subject: "New Subject"
@@ -64,6 +68,17 @@ en:
     edit: "Edit question"
     save_edit: "Save changes"
     save_new: "New question"
+    all_questions: "All Questions"
+    new_question: "New Question"
+    edit_question: "Edit"
+    delete: "Delete"
+    is_approved: "Approved"
+    confirm: "You sure delete this question?"
+    delete_success: "Question detete successfully"
+    delete_fail: "Question delete failed"
+    edit_success: "Question edit successfully"
+    edit_fail: "Question edit failed"
+    question: "Question: %{content}"
 
   answer:
     existing_task_cant_be_blank: "existing answer can't be blank"

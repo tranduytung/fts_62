@@ -16,7 +16,7 @@ class Admins::QuestionsController < ApplicationController
     if @question_form.validate params[:question].permit!
       @question_form.save
       flash[:success] = t "question.add_success"
-      redirect_to admin_questions_path
+      redirect_to admins_questions_path
     else
       flash.now[:danger] = t "question.add_fail"
       load_sources
@@ -28,11 +28,20 @@ class Admins::QuestionsController < ApplicationController
     if @question_form.validate params[:question].permit!
       @question_form.save
       flash[:success] = t "question.edit_success"
-      redirect_to edit_admins_questions_path @question
+      redirect_to admins_questions_path
     else
       flash.now[:danger] = t "question.edit_fail"
       render :edit
     end
+  end
+
+  def destroy
+    if @question.destroy
+      flash[:success] = t "question.delete_success"
+    else
+      flash.now[:danger] = t "question.delete_fail"
+    end
+    redirect_to admins_questions_path
   end
 
   private

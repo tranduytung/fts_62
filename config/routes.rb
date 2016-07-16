@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :exams, only: :index
     resources :subjects
     resources :users, only: :index
-    resources :questions, except: [:index, :destroy]
+    resources :questions
   end
 
   devise_for :users, controllers: {
