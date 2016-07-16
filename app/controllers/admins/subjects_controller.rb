@@ -5,6 +5,11 @@ class Admins::SubjectsController < ApplicationController
     @questions = @subject.questions
   end
 
+  def index
+    @subjects = @subjects.page(params[:page]).
+      per Settings.admin.subject.per_page
+  end
+
   def create
     if @subject.save
       flash[:success] = t "subject.add_success"
