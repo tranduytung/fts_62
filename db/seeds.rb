@@ -29,7 +29,7 @@ users = User.all.order(:created_at)
 users.each do |user|
   10.times do
     exams = user.exams.create!(
-      status: 0,
+      status: rand(3),
       spent_time: 22,
       subject_id: rand(Subject.count) +1,
       score: 23)
