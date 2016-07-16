@@ -1,0 +1,34 @@
+<%= form_for [:admins, @question_form] do |f| %>
+  <%= render "shared/error_messages", object: @question_form %>
+  <%= f.label :subject_id, t("question.subject") %>
+  <%= f.collection_select :subject_id, @subjects, :id, :content,
+    {include_blank: false}, class: "form-control" %>
+
+  <%= f.label :content, t("question.content") %>
+  <%= f.text_field :content, class: "form-control" %>
+
+  <div class="col-md-6">
+    <%= f.label :question_type, t("question.question_type") %>
+    <%= f.select "question_type", @question_types.collect{|k,v| [k,k]},
+      {include_blank: false}, class: "form-control question-type" %>
+  </div>
+  <div class="clearfix"></div>
+  <h3><%= t "question.answer" %></h3>
+  <div id="answers">
+    <table class="table">
+      <tbody>
+        <%= f.fields_for :answers do |answer_field| %>
+          <%= render "answer_field", f: answer_field %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="clearfix"></div>
+  <div class="add_answer option-answers col-md-offset-1">
+    <%= link_to_add_fields t(:add_a_task), f, :answers %>
+  </div>
+  <div class="clearfix"></div>
+  <%= f.submit t("question.add_question"),
+    class: "btn btn-primary col-md-4 col-md-offset-4" %>
+  <%= add_fields_answer f, :answers %>
+<% end %>
