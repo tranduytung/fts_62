@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
   def password_required?
     super && provider.blank?
   end
+
+  def update_with_password params, *options
+    encrypted_password.blank? ? update_attributes(params, *options) : super
+  end
 end
