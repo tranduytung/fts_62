@@ -1,0 +1,33 @@
+<% provide :title, t("user.all_exams") %>
+<div class="row">
+  <h1><%= t "user.all_exams" %></h1>
+  <%= render "admins/exams/search_form" %>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th class="center"><%= sort_link @search, :create_day,
+          t("search.sort.created_dates") %></th>
+        <th class="center"><%= sort_link @search, :user_name,
+          t("search.sort.user_name") %></th>
+        <th class="center"><%= sort_link @search, :subject_content,
+          t("search.sort.subject_content") %></th>
+        <th class="center"><%= sort_link @search, :status,
+          t("search.sort.status") %></th>
+        <th class="center"><%= sort_link @search, :subject_duration,
+          t("search.sort.subject_duration") %></th>
+        <th class="center"><%= sort_link @search, :subject_number_of_questions,
+          t("search.sort.subject_number_of_questions") %></th>
+        <th class="center"><%= sort_link @search, :spent_time,
+          t("search.sort.spent_time") %></th>
+        <th class="center"><%= sort_link @search, :score,
+          t("search.sort.score") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @exams %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= paginate @exams %>
+  </div>
+</div>

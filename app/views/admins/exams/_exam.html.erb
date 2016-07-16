@@ -1,0 +1,10 @@
+<tr>
+  <td class="center"><%= time_tag exam.created_at %></td>
+  <td class="center"><%= exam.user.name %></td>
+  <td class="center"><%= exam.subject.content %></td>
+  <td class="center"><%= t exam.status  %></td>
+  <td class="center"><%= exam.subject.duration %></td>
+  <td class="center"><%= exam.subject.number_of_questions %></td>
+  <td class="center"><%= exam.spent_time %></td>
+  <td class="center"><%= exam.checked? ? exam.score : "--" %></td>
+</tr>

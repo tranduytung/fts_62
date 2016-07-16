@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    root "users#index"
+    root "exams#index"
+    resources :exams, only: :index
     resources :subjects
     resources :users, only: :index
     resources :questions, only: [:create, :new, :index]
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   }, skip: :passwords
 
   namespace :users do
+    root "exams#index"
     resources :exams, only: :index
   end
 end

@@ -25,6 +25,8 @@ en:
     tool_box: "Tool Box"
     user: "User"
     all_users: "All Users"
+    exam: "Exam"
+    all_exams: "All Exams"
 
   subject:
     new_subject: "New Subject"
@@ -82,6 +84,21 @@ en:
   search:
     user:
       name: "User name"
+    all: "All"
+    score_to: "To"
+    score_form: "From"
+    score: "Score"
+    submit: "Search"
+    sort:
+      created_dates: "Created Date"
+      user_name: "User"
+      subject_content: "Subject"
+      status: "Status"
+      subject_duration: "Duration"
+      subject_number_of_questions: "Number questions"
+      spent_time: "Spent time"
+      score: "Score"
+
 
   exam:
     create_day: "Created Date"
