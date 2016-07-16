@@ -4,3 +4,13 @@ admin:
 
 exam:
   per_page: 5
+  start: "start"
+  testing: "testing"
+  unchecked: "unchecked"
+  checked: "checked"
+
+labels:
+  primary: "primary"
+  warning: "warning"
+  info: "info"
+  success: "success"

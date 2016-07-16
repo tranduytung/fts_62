@@ -33,6 +33,19 @@ module ApplicationHelper
       .html_safe
   end
 
+  def class_for_label status
+    case status
+    when Settings.exam.start
+      Settings.labels.primary
+    when Settings.exam.testing
+      Settings.labels.warning
+    when Settings.exam.unchecked
+      Settings.labels.info
+    when Settings.exam.checked
+      Settings.labels.success
+    end
+  end
+
   private
   def render_fields f, association
     new_object = f.object.model.class.reflect_on_association(association).klass.new

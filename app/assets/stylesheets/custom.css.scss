@@ -13,6 +13,10 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
+.content {
+  min-height: 500px;
+}
+
 body {
   padding-top: 60px;
 }
