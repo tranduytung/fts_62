@@ -1,0 +1,15 @@
+<% provide :title, t("admin.check_exam") %>
+<h3>
+  <%= t "exam.subject" %>:
+  <%= @exam.subject.content %>
+</h3>
+<div class="row">
+  <%= form_for [:admins, @exam] do |f| %>
+    <%= f.hidden_field :status, value: Settings.exam.status.checked %>
+    <%= f.hidden_field :score, value: @exam.calculated_score %>
+    <%= f.fields_for :results do |result| %>
+      <%= render "result_form", f: result %>
+    <% end %>
+    <%= f.submit t("admin.check_exam"), class: "btn btn-primary" %>
+  <% end %>
+</div>

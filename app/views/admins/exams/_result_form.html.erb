@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= t :number %>
+      <%= f.index + 1 %>:
+      <%= f.object.question.content %>
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <% if f.object.is_correct? %>
+        <p class="label label-primary">
+        <%= t "result.correct" %>
+      <% else %>
+        <p class="label label-danger">
+        <%= t "result.incorrect" %>
+      <% end %>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <%= f.select :is_correct, Settings.bollean.map{|k,v| [t(k),k]},
+        {include_blank: false}, class: "form-control" %>
+    </div>
+  </div>
+
+  <div>
+    <% f.object.question.answers.each do |answer| %>
+      <div class="radio">
+        <%= f.radio_button :answer_id, answer.id, disabled: true %>
+        <label>
+          <% if answer.is_correct? %>
+            <span class="list-group-item-success">
+          <% elsif f.object.answer == answer %>
+            <span class="list-group-item-danger">
+          <% else %>
+            <span>
+          <% end %>
+            <%= answer.content %>
+          </span>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</div>

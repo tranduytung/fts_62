@@ -40,6 +40,7 @@ en:
     all_subjects: "All Subjects"
     question: "Question"
     all_questions: "All Questions"
+    check_exam: "Check Exam"
 
   subject:
     new_subject: "New Subject"
@@ -62,6 +63,7 @@ en:
     confirm: "You sure delete this subject?"
     delete_fail: "Subject delete failed"
     delete_success: "Subject detete successfully"
+    not_enought_question: "Subject not enought question for a exam"
 
   question:
     new: "New question"
@@ -129,7 +131,6 @@ en:
       spent_time: "Spent time"
       score: "Score"
 
-
   exam:
     create_day: "Created Date"
     subject: "Subject"
@@ -142,6 +143,14 @@ en:
       create_exam: "Create exam"
     created: "Exam has been created"
     not_created: "Failed to create a new exam!"
+    check_done: "Check exam done"
+    check_fail: "Check exam fail. Please check again"
+    cant_check: "Can't check"
+    check: "Check"
+
+  result:
+    correct: "Correct"
+    incorrect: "Incorrect"
 
   start: "Start"
   testing: "Testing"
@@ -149,3 +158,4 @@ en:
   checked: "Checked"
 
   not_authorized: "You are not authorized to access this page."
+  number: "Number"

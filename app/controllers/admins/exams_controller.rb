@@ -11,4 +11,23 @@ class Admins::ExamsController < ApplicationController
       @search.result.page(params[:page]).per Settings.exam.per_page
     end
   end
+
+  def edit
+  end
+
+  def update
+    if @exam.update_attributes exam_params
+      flash[:success] = t "exam.check_done"
+      redirect_to admins_exams_path
+    else
+      flash[:success] = t "exam.check_fail"
+      render "edit"
+    end
+  end
+
+  private
+  def exam_params
+    params.require(:exam).permit :status, :score,
+      results_attributes: [:id, :is_correct]
+  end
 end

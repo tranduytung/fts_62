@@ -7,4 +7,7 @@ class Question < ActiveRecord::Base
   has_many :results, dependent: :destroy
 
   enum question_type: [:single_choice, :multiple_choice, :text]
+  enum status: [:waiting, :approved, :rejected]
+
+  scope :random, ->{order "RANDOM()"}
 end
