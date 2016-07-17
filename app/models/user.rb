@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
     :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :suggested_questions, dependent: :destroy
+  has_many :questions, through: :suggested_questions
+
   has_many :exams, dependent: :destroy
 
   validates :name, presence: true

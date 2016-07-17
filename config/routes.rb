@@ -34,5 +34,6 @@ Rails.application.routes.draw do
   namespace :users do
     root "exams#index"
     resources :exams, except: [:new, :edit, :destroy]
+    resources :questions, except: :show
   end
 end

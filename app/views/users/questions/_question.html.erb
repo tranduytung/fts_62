@@ -1,0 +1,15 @@
+<tr>
+  <td><%= link_to question.content, [:users, question] %></td>
+  <td><%= question.question_type %></td>
+  <td><%= question.subject.content %></td>
+  <td><%= question.is_approved %></td>
+  <td>
+    <%= link_to t("question.edit_question"), edit_users_question_path(question),
+      class: "btn btn-info icon-trash icon-white" %>
+  </td>
+  <td>
+    <%= link_to t("question.delete"), users_question_path(question),
+      method: :delete, data: {confirm: t("question.confirm")},
+      class: "btn btn-danger icon-trash icon-white" %>
+  </td>
+</tr>

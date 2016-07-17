@@ -24,6 +24,7 @@ en:
   edit_profile: "Edit profile"
   update_profile: "Update profile"
   log_out: "Log out"
+  contribute: "Contribute question"
 
   admin:
     name_class: "Admin"
@@ -120,6 +121,7 @@ en:
     complete_registration: "You are almost there! Please fill in the required
       fields to complete your registration"
     all_exams: "All Exams"
+    your_questions: "Your Questions"
 
   devise:
     minimum_password_length: "%{length} characters minimum"
