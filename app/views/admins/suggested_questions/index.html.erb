@@ -1,0 +1,27 @@
+<% provide :title, t("admin.all_suggested_questions") %>
+<div class="row">
+  <h1><%= t "admin.all_suggested_questions" %></h1>
+  <%= render "admins/suggested_questions/search_form" %>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th class="center"><%= sort_link @search, :create_day,
+          t("search.sort.created_dates") %></th>
+        <th class="center"><%= sort_link @search, :user_name,
+          t("search.sort.user_name") %></th>
+        <th class="center"><%= sort_link @search, :question_subject_content,
+          t("search.sort.subject_content") %></th>
+        <th class="center"><%= sort_link @search, :question_content,
+          t("search.sort.question_content") %></th>
+        <th class="center"><%= sort_link @search, :status,
+          t("search.sort.status") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @suggested_questions %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= paginate @suggested_questions %>
+  </div>
+</div>

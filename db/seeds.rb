@@ -61,3 +61,21 @@ exams.each do |exam|
   end
   exam.update status: 2
 end
+
+subjects = Subject.all
+subjects.each do |subject|
+  5.times do
+    question = subject.questions.build(
+      content: Faker::Lorem.sentence,
+      question_type: 0,
+      status: 0)
+    question.answers = [
+      Answer.new(content: Faker::Lorem.characters(5), is_correct: true),
+      Answer.new(content: Faker::Lorem.characters(5), is_correct: false),
+      Answer.new(content: Faker::Lorem.characters(5), is_correct: false),
+      Answer.new(content: Faker::Lorem.characters(5), is_correct: false)
+    ].shuffle
+    question.save!
+    question.create_suggested_question! user_id: rand(User.count) + 1
+  end
+end
