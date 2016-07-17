@@ -19,7 +19,7 @@
       </p>
     </div>
     <div class="col-md-3">
-      <%= f.select :is_correct, Settings.bollean.map{|k,v| [t(k),k]},
+      <%= f.select :is_correct, Settings.bollean.map {|k, v| [t(k), k]},
         {include_blank: false}, class: "form-control" %>
     </div>
   </div>

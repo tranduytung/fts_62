@@ -1,0 +1,9 @@
+<tr>
+  <td class="center"><%= time_tag suggested_question.created_at %></td>
+  <td class="center"><%= suggested_question.user.name %></td>
+  <td class="center"><%= suggested_question.subject.content %></td>
+  <td class="center"><%= suggested_question.question.content %></td>
+  <td class="center"><%= t suggested_question.question.status  %></td>
+  <td class="center"><%= link_to t("suggested_question.check"),
+    edit_admins_suggested_question_path(suggested_question) %></td>
+</tr>

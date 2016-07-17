@@ -41,6 +41,9 @@ en:
     question: "Question"
     all_questions: "All Questions"
     check_exam: "Check Exam"
+    suggested_question: "Suggested Question"
+    all_suggested_questions: "All Suggested Question"
+    check_suggested_question: "Check Suggested Question"
 
   subject:
     new_subject: "New Subject"
@@ -90,6 +93,13 @@ en:
     edit_success: "Question edit successfully"
     edit_fail: "Question edit failed"
     question: "Question: %{content}"
+    status: "Status"
+    single_choice: "Single Choice"
+    multiple_choice: "Multiple Choice"
+    text: "Text"
+    waiting: "Waiting"
+    approved: "Approved"
+    rejected: "Rejected"
 
   answer:
     existing_task_cant_be_blank: "existing answer can't be blank"
@@ -130,6 +140,7 @@ en:
       subject_number_of_questions: "Number questions"
       spent_time: "Spent time"
       score: "Score"
+      question_content: "question"
 
   exam:
     create_day: "Created Date"
@@ -148,6 +159,12 @@ en:
     cant_check: "Can't check"
     check: "Check"
 
+  suggested_question:
+    check: "Check"
+    approved: "Approved"
+    edit_success: "%{action} the question successfully"
+    edit_failed: "%{action} the question failed"
+
   result:
     correct: "Correct"
     incorrect: "Incorrect"
@@ -159,3 +176,6 @@ en:
 
   not_authorized: "You are not authorized to access this page."
   number: "Number"
+
+  approved: "Approved"
+  rejected: "Rejected"

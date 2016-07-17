@@ -1,0 +1,15 @@
+<% provide :title, t("admin.check_suggested_question") %>
+<h3>
+  <%= t "suggested_question.subject" %>:
+  <%= @suggested_question.subject.content %>
+</h3>
+<div class="row">
+  <%= render "question_form", question: @suggested_question.question %>
+
+  <% Settings.suggested_question.status.each do |key, value| %>
+    <%= link_to admins_suggested_question_path(@suggested_question,
+      action_type: key), method: :put do %>
+      <%= t value %>
+    <% end %>
+  <% end %>
+</div>
