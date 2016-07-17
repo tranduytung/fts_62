@@ -1,0 +1,13 @@
+<div class="row">
+  <%= form_for [:users, @exam], html: {class: "form-inline"} do |f| %>
+    <div class="col-md-5">
+      <%= f.select :subject_id,
+        options_from_collection_for_select(@subjects, :id, :content), {},
+        class: "form-control" %>
+    </div>
+    <div class="col-md-7">
+      <%= f.submit t("exam.buttons.create_exam"),
+        class: "btn btn-primary col-md-3" %>
+    </div>
+  <% end %>
+</div>

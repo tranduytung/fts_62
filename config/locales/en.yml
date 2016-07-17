@@ -1,4 +1,13 @@
 en:
+  time:
+    formats:
+      default: ! "%Y-%m-%d %l:%M %p"
+      short: ! "%y/%m/%d %H:%M"
+  date:
+    formats:
+      default: ! "%Y/%m/%d"
+      short: ! "%y/%m/%d"
+
   hello: "Hello world"
   base_title: "Project 3 - Framgia"
   logo: "Project 3"
@@ -129,6 +138,10 @@ en:
     question_number: "Question Number"
     spent_time: "Spent Time"
     score: "Score"
+    buttons:
+      create_exam: "Create exam"
+    created: "Exam has been created"
+    not_created: "Failed to create a new exam!"
 
   start: "Start"
   testing: "Testing"

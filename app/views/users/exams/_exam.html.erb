@@ -1,7 +1,11 @@
 <tr>
-  <td class="center"><%= exam.created_at %></td>
+  <td class="center"><%= l exam.created_at, format: :default %></td>
   <td class="center"><%= exam.subject.content %></td>
-  <td class="center"><%= t exam.status %></td>
+  <td class="center">
+    <span class="label label-<%= class_for_label exam.status %>">
+      <%= exam.status %>
+    </span>
+  </td>
   <td class="center"><%= exam.subject.duration %></td>
   <td class="center"><%= exam.subject.number_of_questions %></td>
   <td class="center"><%= exam.spent_time %></td>

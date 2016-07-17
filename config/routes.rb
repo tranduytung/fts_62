@@ -32,6 +32,6 @@ Rails.application.routes.draw do
 
   namespace :users do
     root "exams#index"
-    resources :exams, only: :index
+    resources :exams, only: [:index, :create]
   end
 end
