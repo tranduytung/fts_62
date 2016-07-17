@@ -1,5 +1,8 @@
+<% exam.update_status_exam %>
 <tr>
-  <td class="center"><%= l exam.created_at, format: :default %></td>
+  <td class="center"><%= l exam.created_at, format: :short %></td>
+  <td class="center"><%= exam.started_at.nil? ? "--" :
+    (l exam.started_at, format: :short) %></td>
   <td class="center"><%= exam.subject.content %></td>
   <td class="center">
     <span class="label label-<%= class_for_label exam.status %>">
@@ -8,6 +11,15 @@
   </td>
   <td class="center"><%= exam.subject.duration %></td>
   <td class="center"><%= exam.subject.number_of_questions %></td>
-  <td class="center"><%= exam.spent_time %></td>
+  <td class="center"><%= exam.spent_time_format %></td>
   <td class="center"><%= exam.checked? ? exam.score : "--" %></td>
+  <td class="center">
+    <% if exam.start? %>
+      <%= link_to t("exam.buttons.start"), [:users, exam],
+        class: "btn btn-primary button" %>
+    <% else %>
+      <%= link_to t("exam.buttons.view"), [:users, exam],
+        class: "btn btn-success button" %>
+    <% end %>
+  </td>
 </tr>

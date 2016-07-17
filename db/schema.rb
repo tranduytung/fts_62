@@ -46,7 +46,8 @@ ActiveRecord::Schema.define(version: 20160714062646) do
 
   create_table "exams", force: :cascade do |t|
     t.integer  "status",     default: 0
-    t.time     "spent_time"
+    t.datetime "started_at"
+    t.integer  "spent_time", default: 0
     t.integer  "score",      default: 0
     t.integer  "user_id"
     t.integer  "subject_id"

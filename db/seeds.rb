@@ -30,7 +30,7 @@ subject.each do |subject|
   50.times do
     question = subject.questions.build(
       content: Faker::Lorem.sentence,
-      question_type: 0,
+      question_type: rand(3),
       status: 1)
     question.answers = [
       Answer.new(content: Faker::Lorem.characters(5), is_correct: true),

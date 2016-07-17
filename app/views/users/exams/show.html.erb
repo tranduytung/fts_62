@@ -1,0 +1,16 @@
+<% provide :title, @subject.content %>
+<div class="row exam">
+  <div class="col-md-8 col-md-offset-1">
+    <%= t "exam.start_date" %>
+    <%= l @exam.started_at, format: :short %></br>
+    <% if @exam.checked? %>
+      <%= t "exam.result" %>
+      <span><%= @exam.score %></span>
+    <% end %>
+    <div class="text-center">
+      <h2><%= @subject.content %></h2>
+    </div>
+    <hr>
+    <%= render "exam_form", state: @exam.time_out? %>
+  </div>
+</div>

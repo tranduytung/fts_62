@@ -3,6 +3,7 @@ en:
     formats:
       default: ! "%Y-%m-%d %l:%M %p"
       short: ! "%y/%m/%d %H:%M"
+      clock: ! "%H:%M:%S"
   date:
     formats:
       default: ! "%Y/%m/%d"
@@ -133,27 +134,35 @@ en:
     submit: "Search"
     sort:
       created_dates: "Created Date"
+      started_dates: "Started Date"
       user_name: "User"
       subject_content: "Subject"
       status: "Status"
       subject_duration: "Duration"
-      subject_number_of_questions: "Number questions"
+      subject_number_of_questions: "No. of Questions"
       spent_time: "Spent time"
       score: "Score"
       question_content: "question"
 
   exam:
-    create_day: "Created Date"
+    create_date: "Create Date"
+    start_date: "Start Date"
     subject: "Subject"
     status: "Status"
+    result: "Result"
     duration: "Duration"
-    question_number: "Question Number"
+    question_number: "No. of Questions"
     spent_time: "Spent Time"
     score: "Score"
+    action: "Action"
     buttons:
       create_exam: "Create exam"
+      start: "Start"
+      view: "View"
+      back_to_all: "Back to all exams"
     created: "Exam has been created"
     not_created: "Failed to create a new exam!"
+    subject_not_found: "The subject you have chosen doesn't exist"
     check_done: "Check exam done"
     check_fail: "Check exam fail. Please check again"
     cant_check: "Can't check"
