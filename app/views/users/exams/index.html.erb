@@ -3,16 +3,25 @@
   <div class="col-md-12">
     <h1><%= t "user.all_exams" %></h1>
     <%= render "exam_create_form" %><br>
+    <%= render "search_form" %>
     <table class="table table-bordered table-striped table-condensed">
       <thead>
         <tr>
-          <th class="center"><%= t "exam.create_day" %></th>
-          <th class="center"><%= t "exam.subject" %></th>
-          <th class="center"><%= t "exam.status" %></th>
-          <th class="center"><%= t "exam.duration" %></th>
-          <th class="center"><%= t "exam.question_number" %></th>
-          <th class="center"><%= t "exam.spent_time" %></th>
-          <th class="center"><%= t "exam.score" %></th>
+          <th class="center"><%= sort_link @search, :created_at,
+            t("search.sort.created_dates") %></th>
+          <th class="center"><%= sort_link @search, :subject_content,
+            t("search.sort.subject_content") %></th>
+          <th class="center"><%= sort_link @search, :status,
+            t("search.sort.status") %></th>
+          <th class="center"><%= sort_link @search, :subject_duration,
+            t("search.sort.subject_duration") %></th>
+          <th class="center"><%= sort_link @search,
+            :subject_number_of_questions,
+            t("search.sort.subject_number_of_questions") %></th>
+          <th class="center"><%= sort_link @search, :spent_time,
+            t("search.sort.spent_time") %></th>
+          <th class="center"><%= sort_link @search, :score,
+            t("search.sort.score") %></th>
         </tr>
       </thead>
       <tbody>

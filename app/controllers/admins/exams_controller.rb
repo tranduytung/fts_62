@@ -5,11 +5,9 @@ class Admins::ExamsController < ApplicationController
     @subjects = Subject.all
     @statuses = Exam.statuses
     @search = @exams.ransack params[:q]
-    @exams = if params[:q].nil?
-      @exams.page(params[:page]).per Settings.exam.per_page
-    else
-      @search.result.page(params[:page]).per Settings.exam.per_page
-    end
+    @exams = @search.result unless params[:q].nil?
+    @exams = @exams.page(params[:page]).per(Settings.exam.per_page).
+      order created_at: :desc
   end
 
   def edit
