@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     root "exams#index"
-    resources :exams, only: :index
+    resources :exams, only: [:index, :edit, :update]
     resources :subjects
     resources :users, only: :index
     resources :questions

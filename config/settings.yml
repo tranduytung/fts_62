@@ -10,9 +10,15 @@ exam:
   testing: "testing"
   unchecked: "unchecked"
   checked: "checked"
+  status:
+    checked: "checked"
 
 labels:
   primary: "primary"
   warning: "warning"
   info: "info"
   success: "success"
+
+bollean:
+  true: true
+  false: false

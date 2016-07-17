@@ -7,4 +7,6 @@
   <td class="center"><%= exam.subject.number_of_questions %></td>
   <td class="center"><%= exam.spent_time %></td>
   <td class="center"><%= exam.checked? ? exam.score : "--" %></td>
+  <td><%= (exam.checked? || exam.unchecked?) ? (link_to t("exam.check"),
+    edit_admins_exam_path(exam)) : (t "exam.cant_check") %></td>
 </tr>
