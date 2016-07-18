@@ -180,6 +180,8 @@ en:
       start: "Start"
       view: "View"
       back_to_all: "Back to all exams"
+      save: "Save"
+      finish: "Finish"
     created: "Exam has been created"
     not_created: "Failed to create a new exam!"
     subject_not_found: "The subject you have chosen doesn't exist"
@@ -187,6 +189,9 @@ en:
     check_fail: "Check exam fail. Please check again"
     cant_check: "Can't check"
     check: "Check"
+    submit_success: "Your answers has been submitted"
+    submit_fail: "Submission failed. Please try again"
+    warning_finish: "Are you sure you want to finish this exam?"
 
   suggested_question:
     check: "Check"

@@ -9,6 +9,7 @@ class Exam < ActiveRecord::Base
   validate :check_number_question
 
   after_create :create_result_for_exam
+  after_update :check_results
 
   accepts_nested_attributes_for :results
 
@@ -21,8 +22,14 @@ class Exam < ActiveRecord::Base
     interval > subject.duration * 60 ? subject.duration * 60 : interval
   end
 
+  def check_results
+    results.each do |result|
+      result.check_result
+    end
+  end
+
   def spent_time_format
-    Time.at(Exam.last.spent_time).utc.strftime(I18n.t "time.formats.clock")
+    Time.at(spent_time).utc.strftime I18n.t("time.formats.clock")
   end
 
   def time_out?

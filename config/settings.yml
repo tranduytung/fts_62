@@ -18,12 +18,15 @@ exam:
   checked: "checked"
   status:
     checked: "checked"
+  states:
+    finish: "Finish"
 
 labels:
   primary: "primary"
   warning: "warning"
   info: "info"
   success: "success"
+  danger: "danger"
 
 questions:
   single_choice: "single_choice"

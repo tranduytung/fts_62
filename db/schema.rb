@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160714062646) do
     t.integer  "exam_id"
     t.integer  "question_id"
     t.integer  "answer_id"
+    t.string   "answer_ids"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

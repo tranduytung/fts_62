@@ -46,6 +46,10 @@ module ApplicationHelper
     end
   end
 
+  def result_label result
+    result.is_correct? ? Settings.labels.success : Settings.labels.danger
+  end
+
   private
   def render_fields f, association
     new_object = f.object.model.class.reflect_on_association(association).klass.new
