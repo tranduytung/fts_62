@@ -1,7 +1,8 @@
 class Users::QuestionsController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource except: [:index, :create]
-  before_action :load_sources, only: [:new, :edit]
+  load_and_authorize_resource
+  skip_load_resource only: [:index, :create]
+  before_action :load_sources, only: [:new, :edit, :index]
   before_action :load_question_form, only: [:edit, :update]
 
   def new
@@ -10,8 +11,12 @@ class Users::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = current_user.questions.page(params[:page]).
+    @questions = current_user.questions
+    @search = @questions.ransack params[:q]
+    @questions = @search.result unless params[:q].nil?
+    @questions = @questions.page(params[:page]).
       per Settings.admin.suggested_question.per_page
+    @statuses = Question.statuses
   end
 
   def create

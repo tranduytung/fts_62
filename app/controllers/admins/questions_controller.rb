@@ -1,18 +1,29 @@
 class Admins::QuestionsController < ApplicationController
+  before_action :authenticate_admin!
   load_and_authorize_resource
-  before_action :load_sources, only: [:new, :edit]
-  before_action :load_subject_form, only: [:edit, :update]
+  skip_load_resource only: :create
+  before_action :load_sources, only: [:new, :edit, :index]
+  before_action :load_question_form, only: [:edit, :update]
+
+  def index
+    @search = @questions.ransack params[:q]
+    @questions = @search.result unless params[:q].nil?
+    @questions = @questions.page(params[:page]).
+      per Settings.admin.suggested_question.per_page
+    @statuses = Question.statuses
+  end
 
   def new
     @question.answers.build
-    @question_form = QuestionForm.new @question
+    load_question_form
   end
 
   def create
+    @question = Question.new
     params[:question][:answers_attributes].each do |_, value|
       @question.answers.build
     end
-    @question_form = QuestionForm.new @question
+    load_question_form
     if @question_form.validate params[:question].permit!
       @question_form.save
       flash[:success] = t "question.add_success"
@@ -31,6 +42,7 @@ class Admins::QuestionsController < ApplicationController
       redirect_to admins_questions_path
     else
       flash.now[:danger] = t "question.edit_fail"
+      load_sources
       render :edit
     end
   end
@@ -45,16 +57,12 @@ class Admins::QuestionsController < ApplicationController
   end
 
   private
-  def question_params
-    params.require(:question).permit :content, :question_type, :subject_id, :_destroy
-  end
-
   def load_sources
     @question_types = Question.question_types
     @subjects = Subject.all
   end
 
-  def load_subject_form
+  def load_question_form
     @question_form = QuestionForm.new @question
   end
 end

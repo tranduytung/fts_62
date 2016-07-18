@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20160714062646) do
   create_table "questions", force: :cascade do |t|
     t.string   "content"
     t.integer  "question_type", default: 0
-    t.integer  "status"
+    t.integer  "status",        default: 0
     t.integer  "subject_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
