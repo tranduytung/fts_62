@@ -9,7 +9,7 @@
 
   <div class="col-md-6">
     <%= f.label :question_type, t("question.question_type") %>
-    <%= f.select "question_type", @question_types.collect{|k,v| [k,k]},
+    <%= f.select "question_type", @question_types.collect{|k, v| [k, k]},
       {include_blank: false}, class: "form-control question-type" %>
   </div>
   <div class="clearfix"></div>
