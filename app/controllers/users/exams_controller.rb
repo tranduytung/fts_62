@@ -4,8 +4,12 @@ class Users::ExamsController < ApplicationController
 
   def index
     @exam = Exam.new
+    @exams = current_user.exams
     @subjects = Subject.order :content
-    @exams = current_user.exams.page(params[:page]).per(Settings.exam.per_page).
+    @statuses = Exam.statuses
+    @search = @exams.ransack params[:q]
+    @exams = @search.result unless params[:q].nil?
+    @exams = @exams.page(params[:page]).per(Settings.exam.per_page).
       order created_at: :desc
   end
 
