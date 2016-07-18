@@ -2,11 +2,16 @@
   <td class="center"><%= time_tag exam.created_at %></td>
   <td class="center"><%= exam.user.name %></td>
   <td class="center"><%= exam.subject.content %></td>
-  <td class="center"><%= t exam.status  %></td>
+  <td class="center">
+    <span class="label label-<%= class_for_label exam.status %>">
+      <%= exam.status %>
+    </span>
+  </td>
   <td class="center"><%= exam.subject.duration %></td>
   <td class="center"><%= exam.subject.number_of_questions %></td>
   <td class="center"><%= exam.spent_time %></td>
   <td class="center"><%= exam.checked? ? exam.score : "--" %></td>
-  <td><%= (exam.checked? || exam.unchecked?) ? (link_to t("exam.check"),
-    edit_admins_exam_path(exam)) : (t "exam.cant_check") %></td>
+  <td class="center"><%= (exam.checked? || exam.unchecked?) ?
+    (link_to t("exam.check"), edit_admins_exam_path(exam),
+    class: "btn btn-info") : "--" %></td>
 </tr>

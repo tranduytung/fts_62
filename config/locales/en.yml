@@ -46,6 +46,11 @@ en:
     suggested_question: "Suggested Question"
     all_suggested_questions: "All Suggested Question"
     check_suggested_question: "Check Suggested Question"
+    users: "Users"
+    exams: "Exams"
+    subjects: "Subjects"
+    questions: "Questions"
+    suggested_question: "Suggested Questions"
 
   subject:
     new_subject: "New Subject"
@@ -102,6 +107,9 @@ en:
     waiting: "Waiting"
     approved: "Approved"
     rejected: "Rejected"
+    yes: "Yes"
+    no: "No"
+    add_an_answer: "Add an Answer"
 
   answer:
     existing_task_cant_be_blank: "existing answer can't be blank"
@@ -175,6 +183,7 @@ en:
     approved: "Approved"
     edit_success: "%{action} the question successfully"
     edit_failed: "%{action} the question failed"
+    action: "Action"
 
   result:
     correct: "Correct"

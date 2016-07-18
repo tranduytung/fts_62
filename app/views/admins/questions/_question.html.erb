@@ -1,8 +1,8 @@
 <tr>
   <td><%= link_to question.content, [:admins, question] %></td>
-  <td><%= question.question_type %></td>
+  <td><%= t question.question_type %></td>
   <td><%= question.subject.content %></td>
-  <td><%= question.status %></td>
+  <td><%= t question.status %></td>
   <td>
     <%= link_to t("question.edit_question"), edit_admins_question_path(question),
       class: "btn btn-info icon-trash icon-white" %>

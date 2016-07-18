@@ -15,11 +15,8 @@
     <% question.answers.each do |answer| %>
       <div class ="checkbox">
         <label>
-          <% if answer.is_correct? %>
-            <%= check_box_tag answer.content, "yes", true, disabled: true %>
-          <% else %>
-            <%= check_box_tag answer.content, "no", false, disabled: true %>
-          <% end %>
+          <%= check_box_tag answer.content, answer.is_correct? ?
+            "yes" : "no", true, disabled: true %>
           <%= answer.content %>
         </label>
       </div>

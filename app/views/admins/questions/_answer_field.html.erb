@@ -1,11 +1,15 @@
-<tr class="field form-inline">
-  <td><%= f.label :content %></td>
-  <td><%= f.text_field :content, class: "form-control" %></td>
-  <td class="correct-choose">
-    <%= f.label :is_correct %>
-    <%= f.check_box :is_correct, class: "check" %>
-  </td>
-  <td class="remove-choose">
-    <%= link_to_remove_fields t(:remove), f %>
-  </td>
-</tr>
+<table class="table">
+  <tbody>
+    <tr class="field form-inline">
+      <td><%= f.label :content %></td>
+      <td><%= f.text_field :content, class: "form-control" %></td>
+      <td class="correct-choose">
+        <%= f.label :is_correct %>
+        <%= f.check_box :is_correct, class: "check" %>
+      </td>
+      <td class="remove-choose">
+        <%= link_to_remove_fields t(:remove), f %>
+      </td>
+    </tr>
+  </tbody>
+</table>
