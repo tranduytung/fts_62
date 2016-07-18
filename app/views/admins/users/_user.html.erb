@@ -1,0 +1,13 @@
+<tr>
+  <td class="center"><%= user.name %></td>
+  <td class="center"><%= user.email %></td>
+  <td>
+    <%= link_to t("subject.edit"), edit_admins_user_path(user),
+      class: "btn btn-info icon-trash icon-white" %>
+  </td>
+  <td>
+    <%= link_to t("subject.delete"), admins_user_path(user),
+      method: :delete, data: {confirm: t("user.confirm")},
+      class: "btn btn-danger icon-trash icon-white" %>
+  </td>
+</tr>

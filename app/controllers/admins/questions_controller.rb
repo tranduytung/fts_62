@@ -1,5 +1,4 @@
 class Admins::QuestionsController < ApplicationController
-  before_action :authenticate_admin!
   load_and_authorize_resource
   skip_load_resource only: :create
   before_action :load_sources, only: [:new, :edit, :index]
