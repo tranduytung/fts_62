@@ -15,6 +15,7 @@ class Admins::ExamsController < ApplicationController
 
   def update
     if @exam.update_attributes exam_params
+      @exam.update_attributes score: @exam.calculated_score
       flash[:success] = t "exam.check_done"
       redirect_to admins_exams_path
     else
@@ -25,7 +26,7 @@ class Admins::ExamsController < ApplicationController
 
   private
   def exam_params
-    params.require(:exam).permit :status, :score,
+    params.require(:exam).permit :status,
       results_attributes: [:id, :is_correct]
   end
 end
