@@ -61,3 +61,13 @@ $(document).on('change', '.question-type', function() {
   }
   prev = $(this).val();
 });
+
+var ready = function() {
+  if($('.question-type').val() == 'text'){
+    $('.correct-choose').hide();
+    $('.remove-choose').hide();
+    $('.add_answer').hide();
+  }
+};
+
+$(document).on('ready', ready);

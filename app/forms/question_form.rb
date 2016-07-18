@@ -18,6 +18,10 @@ class QuestionForm < Reform::Form
 
   validate :validate_answer_content
 
+  def create_author user
+    user.suggested_questions.create question_id: id
+  end
+
   def save
     super do |attrs|
       to_be_removed = -> i {i[:_destroy] == "1"}

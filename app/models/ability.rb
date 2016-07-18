@@ -7,6 +7,7 @@ class Ability
     when User
       can :read, :all
       can :create, Exam
+      can :manage, Question
     when Admin
       can :manage, :all
     end
