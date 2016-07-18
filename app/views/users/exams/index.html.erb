@@ -9,6 +9,8 @@
         <tr>
           <th class="center"><%= sort_link @search, :created_at,
             t("search.sort.created_dates") %></th>
+          <th class="center"><%= sort_link @search, :started_at,
+            t("search.sort.started_dates") %></th>
           <th class="center"><%= sort_link @search, :subject_content,
             t("search.sort.subject_content") %></th>
           <th class="center"><%= sort_link @search, :status,
@@ -22,6 +24,7 @@
             t("search.sort.spent_time") %></th>
           <th class="center"><%= sort_link @search, :score,
             t("search.sort.score") %></th>
+          <th class="center"><%= t "exam.action" %></th>
         </tr>
       </thead>
       <tbody>

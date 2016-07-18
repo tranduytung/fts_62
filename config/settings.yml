@@ -6,6 +6,10 @@ admin:
   suggested_question:
     per_page: 5
 
+bollean:
+  true: true
+  false: false
+
 exam:
   per_page: 5
   start: "start"
@@ -21,11 +25,12 @@ labels:
   info: "info"
   success: "success"
 
+questions:
+  single_choice: "single_choice"
+  multiple_choice: "multiple_choice"
+  text: "text"
+
 suggested_question:
   status:
     :approved: "Approved"
     :rejected: "Rejected"
-
-bollean:
-  true: true
-  false: false

@@ -10,7 +10,7 @@
     <div class="col-md-2">
       <%= t "search.status" %>
       <%= f.select :status_eq, @statuses.collect{|key, value| [t(key), value]},
-        {include_blank: t("all")} %>
+        {include_blank: t("all")}, class: "form-control" %>
     </div>
 
     <div class="col-md-3">
@@ -28,6 +28,7 @@
     </div>
 
     <div class="col-md-2">
+      <br>
       <%= f.submit t("search.submit"), class: "btn btn-primary" %>
     </div>
   <% end %>

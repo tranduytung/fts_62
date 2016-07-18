@@ -359,3 +359,27 @@ span.picture {
 thead {
   background-color: #E1E1E1;
 }
+
+select {
+  width: 100%!important;
+}
+
+.exam {
+  .radio {
+    padding-left: 20px;
+    font-weight: normal;
+  }
+
+  input {
+    width: auto!important;
+  }
+
+  .check_box {
+    font-weight: normal;
+    display: block;
+
+    .cb {
+      margin-right: 5px;
+    }
+  }
+}

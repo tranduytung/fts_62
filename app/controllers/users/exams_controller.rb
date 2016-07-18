@@ -1,6 +1,7 @@
 class Users::ExamsController < ApplicationController
   before_action :authenticate_user!
   authorize_resource
+  load_resource except: :show
 
   def index
     @exam = Exam.new
@@ -13,14 +14,40 @@ class Users::ExamsController < ApplicationController
       order created_at: :desc
   end
 
+  def show
+    @exam = Exam.includes({results: [{question: :answers}, :text_answer]}).
+      find_by id: params[:id]
+    @subject = @exam.subject
+    if @exam.start?
+      @exam.update_attributes started_at: Time.zone.now
+      @exam.testing!
+    end
+  end
+
   def create
-    @exam = current_user.exams.build exam_params
-    if @exam.save
-      flash[:success] = t "exam.created"
+    @subject = Subject.find_by id: params[:exam][:subject_id]
+    if @subject.present?
+      @exam = current_user.exams.build exam_params
+      if @exam.save
+        flash[:success] = t "exam.created"
+      else
+        flash[:danger] = t "exam.not_created"
+      end
     else
-      flash[:danger] = t "exam.not_created"
+      flash[:danger] = t "exam.subject_not_found"
     end
     redirect_to users_exams_path
+  end
+
+  def update
+    if @exam.update_attributes exam_params
+      @exam.update_attributes spent_time: @exam.calculated_spent_time
+      @exam.unchecked! if @exam.time_out?
+      flash[:notice] = t "flashs.messages.submit_success"
+    else
+      flash[:alert] = t "flashs.messages.invalid"
+    end
+    redirect_to users_exams_url
   end
 
   private

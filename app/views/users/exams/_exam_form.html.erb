@@ -1,0 +1,30 @@
+<%= form_for [:users, @exam] do |f| %>
+  <ol>
+    <%= f.fields_for :results do |ff| %>
+      <li><%= ff.object.question.content %></li>
+      <br/>
+      <% case ff.object.question.question_type %>
+      <% when Settings.questions.multiple_choice %>
+        <%= ff.collection_check_boxes :answer_id, ff.object.question.answers,
+          :id, :content, {}, {disabled: state} do |cb| %>
+          <%= cb.label(class: "check_box") {cb.check_box(class: "cb") +
+            cb.text} %>
+        <% end %>
+      <% when Settings.questions.single_choice %>
+        <%= ff.collection_radio_buttons :answer_id, ff.object.question.answers,
+          :id, :content, {}, {disabled: state} do |rb| %>
+            <%= rb.label(class: "radio") {rb.radio_button + rb.text} %>
+        <% end %>
+      <% when Settings.questions.text %>
+        <%= ff.fields_for :text_answer do |fff| %>
+          <%= fff.text_area :content, readonly: state, class: "form-control" %>
+        <% end %>
+      <% end %>
+      <br/>
+    <% end %>
+  </ol>
+<% end %>
+<div class="text-center">
+  <%= link_to t("exam.buttons.back_to_all"), users_exams_path,
+    class: "btn btn-default" %>
+</div>
