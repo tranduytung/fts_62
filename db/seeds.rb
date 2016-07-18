@@ -30,7 +30,7 @@ subject.each do |subject|
   50.times do
     question = subject.questions.build(
       content: Faker::Lorem.sentence,
-      question_type: rand(3),
+      question_type: 0,
       status: 1)
     question.answers = [
       Answer.new(content: Faker::Lorem.characters(5), is_correct: true),
@@ -38,6 +38,34 @@ subject.each do |subject|
       Answer.new(content: Faker::Lorem.characters(5), is_correct: false),
       Answer.new(content: Faker::Lorem.characters(5), is_correct: false)
     ].shuffle
+    question.save!
+  end
+end
+
+subject.each do |subject|
+  10.times do
+    question = subject.questions.build(
+      content: Faker::Lorem.sentence,
+      question_type: 1,
+      status: 1)
+    question.answers = [
+      Answer.new(content: Faker::Lorem.characters(5), is_correct: true),
+      Answer.new(content: Faker::Lorem.characters(5), is_correct: false),
+      Answer.new(content: Faker::Lorem.characters(5), is_correct: true),
+      Answer.new(content: Faker::Lorem.characters(5), is_correct: false)
+    ].shuffle
+    question.save!
+  end
+end
+
+subject.each do |subject|
+  10.times do
+    question = subject.questions.build(
+      content: Faker::Lorem.sentence,
+      question_type: 2,
+      status: 1)
+    question.answers.new content: Faker::Lorem.characters(5),
+      is_correct: true
     question.save!
   end
 end
@@ -56,8 +84,9 @@ exams = Exam.all.where(status: 1)
 exams = exams.take(exams.count)
 exams.each do |exam|
   exam.results.each do |result|
-    answer = result.question.answers.last
+    answer = result.question.answers.first
     result.update answer: answer, is_correct: answer.is_correct
+    result.create_text_answer! content: answer.content if result.question.text?
   end
   exam.update status: 2
 end

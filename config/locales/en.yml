@@ -179,6 +179,8 @@ en:
   result:
     correct: "Correct"
     incorrect: "Incorrect"
+    user_answer: "User Answer: "
+    answer_correct: "Answer Correct: "
 
   start: "Start"
   testing: "Testing"
