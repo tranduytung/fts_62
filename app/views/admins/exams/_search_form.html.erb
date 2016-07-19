@@ -6,33 +6,35 @@
       <%= f.text_field :user_name_cont, class: "form-control" %>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-2">
       <%= t "search.subject" %>
       <%= f.collection_select :subject_id_eq, @subjects, :id, :content,
         {include_blank: t("all")}, class: "form-control" %>
     </div>
 
-    <div class="col-md-1">
+    <div class="col-md-2">
       <%= t "search.status" %>
       <%= f.select :status_eq, @statuses.collect{|key, value| [t(key), value]},
-        {include_blank: t("all")} %>
+        {include_blank: t("all")}, class: "form-control" %>
     </div>
 
     <div class="col-md-3">
-      <div class="col-md-2">
+      <div class="col-md-3">
+        <br />
         <%= t "search.score" %>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4 col-md-offset-1">
         <%= t "search.score_form" %>
         <%= f.text_field :score_gteq, class: "form-control" %>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
       <%= t "search.score_to" %>
-      <%= f.text_field :score_lteq, class: "form-control " %>
+      <%= f.text_field :score_lteq, class: "form-control" %>
       </div>
     </div>
 
     <div class="col-md-2">
+      <br />
       <%= f.submit t("search.submit"), class: "btn btn-primary" %>
     </div>
   <% end %>

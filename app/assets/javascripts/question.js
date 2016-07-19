@@ -63,7 +63,12 @@ $(document).on('change', '.question-type', function() {
 });
 
 var ready = function() {
-  if($('.question-type').val() == 'text'){
+  var type = $('.question-type').val();
+  if(type == 'single_choice'){
+    $('input[type="checkbox"]').on('click', function() {
+      $('input[type="checkbox"]').not(this).prop('checked', false);
+    })
+  } else if(type == 'text'){
     $('.correct-choose').hide();
     $('.remove-choose').hide();
     $('.add_answer').hide();
@@ -71,3 +76,4 @@ var ready = function() {
 };
 
 $(document).on('ready', ready);
+$(document).on('change', ready);

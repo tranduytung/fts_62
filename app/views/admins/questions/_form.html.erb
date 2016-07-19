@@ -15,17 +15,12 @@
   <div class="clearfix"></div>
   <h3><%= t "question.answer" %></h3>
   <div id="answers">
-    <table class="table">
-      <tbody>
-        <%= f.fields_for :answers do |answer_field| %>
-          <%= render "answer_field", f: answer_field %>
-        <% end %>
-      </tbody>
-    </table>
+    <%= f.fields_for :answers do |answer_field| %>
+      <%= render "answer_field", f: answer_field %>
+    <% end %>
   </div>
-  <div class="clearfix"></div>
   <div class="add_answer option-answers col-md-offset-1">
-    <%= link_to_add_fields t(:add_a_task), f, :answers %>
+    <%= link_to_add_fields t("question.add_an_answer"), f, :answers %>
   </div>
   <div class="clearfix"></div>
   <%= f.submit yield(:submit),
