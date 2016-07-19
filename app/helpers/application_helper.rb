@@ -33,6 +33,16 @@ module ApplicationHelper
       .html_safe
   end
 
+  def render_header
+    if admin_signed_in?
+      render "layouts/header_admin"
+    elsif user_signed_in?
+      render "layouts/header_user"
+    else
+      render "layouts/header"
+    end
+  end
+
   def class_for_label status
     case status
     when Settings.exam.start

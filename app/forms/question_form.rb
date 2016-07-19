@@ -8,6 +8,7 @@ class QuestionForm < Reform::Form
   property :question_type
   property :subject_id
   validates :content, presence: true
+  property :status
 
   collection :answers, populate_if_empty: Answer do
     property :id, writeable: false

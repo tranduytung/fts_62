@@ -23,6 +23,7 @@
     <%= link_to_add_fields t("question.add_an_answer"), f, :answers %>
   </div>
   <div class="clearfix"></div>
+  <%= f.hidden_field :status, value: Settings.questions.approved %>
   <%= f.submit yield(:submit),
     class: "btn btn-primary col-md-4 col-md-offset-4" %>
   <%= add_fields_answer f, :answers %>

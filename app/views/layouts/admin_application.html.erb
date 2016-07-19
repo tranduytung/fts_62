@@ -9,29 +9,29 @@
     <%= render "layouts/shim" %>
   </head>
   <body>
-    <%= render "layouts/header_admin" %>
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-      <div class="container">
-        <% if admin_signed_in? %>
-          <div class="wrapper">
-            <div class="box">
-              <div class="row row-offcanvas row-offcanvas-left">
-                <div class="column col-sm-3 col-xs-2 sidebar-offcanvas" id="sidebar">
-                  <%= render "layouts/admin_tool_box" %>
-                </div>
-                <div class="column col-sm-9 col-xs-10" id="main">
-                  <%= yield %>
-                </div>
+    <%= render_header %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+    <div class="container">
+      <% if admin_signed_in? %>
+        <div class="wrapper">
+          <div class="box">
+            <div class="row row-offcanvas row-offcanvas-left">
+              <div class="column col-sm-3 col-xs-2 sidebar-offcanvas" id="sidebar">
+                <%= render "layouts/admin_tool_box" %>
+              </div>
+              <div class="column col-sm-9 col-xs-10" id="main">
+                <%= yield %>
               </div>
             </div>
           </div>
-        <% else %>
-          <%= yield %>
-        <% end %>
-        <%= render "layouts/footer" %>
-        <%= debug params if Rails.env.development? %>
-      </div>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
+      <%= render "layouts/footer" %>
+      <%= debug params if Rails.env.development? %>
+    </div>
   </body>
 </html>

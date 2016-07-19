@@ -5,6 +5,8 @@ admin:
     per_page: 10
   suggested_question:
     per_page: 5
+  subject_question:
+    per_page: 10
 
 bollean:
   true: true
@@ -32,6 +34,7 @@ questions:
   single_choice: "single_choice"
   multiple_choice: "multiple_choice"
   text: "text"
+  approved: "approved"
 
 suggested_question:
   status:

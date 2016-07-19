@@ -1,25 +1,32 @@
 <h1><%= link_to @subject.content, [:admins, @subject] %></h1>
 <hr/>
-<table class="table">
-  <thead>
-    <tr>
-      <th><%= t "questions" %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @questions.each do |question| %>
+<div class="col-md-9">
+  <table class="table">
+    <thead>
       <tr>
-        <td><% link_to question.content, [:admins, question] %></td>
-        <td>
-          <%= link_to t("question.edit"), "#",
-            class: "btn btn-info icon-trash icon-white" %>
-        </td>
-        <td>
-          <%= link_to t("question.delete"), "#",
-            class: "btn btn-danger icon-trash icon-white" %>
-        </td>
+        <th class="center"><%= t "question.questions" %></th>
+        <th class="center"><%= t "question.question_type" %></th>
+        <th class="center" colspan="2"><%= t "question.action" %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td><%= link_to question.content, [:admins, question] %></td>
+          <td class="center"><%= t question.question_type %></td>
+          <td>
+            <%= link_to t("question.edit_question"),
+              edit_admins_question_path(question),
+              class: "btn btn-info icon-trash icon-white" %>
+          </td>
+          <td>
+            <%= link_to t("question.delete"), admins_question_path(question),
+              method: :delete, data: {confirm: t("question.confirm")},
+              class: "btn btn-danger icon-trash icon-white" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <hr/>

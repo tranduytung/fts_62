@@ -2,7 +2,8 @@ class Admins::SubjectsController < ApplicationController
   load_and_authorize_resource
 
   def show
-    @questions = @subject.questions
+    @questions = @subject.questions.page(params[:page]).
+      per Settings.admin.subject_question.per_page
   end
 
   def index

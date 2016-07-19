@@ -24,6 +24,7 @@ class Result < ActiveRecord::Base
         text_answer.content.strip == question.answers.first.content.strip
       end
     end
+    check ||= false
     update_attributes is_correct: check
   end
 

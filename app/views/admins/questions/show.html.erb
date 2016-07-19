@@ -1,22 +1,28 @@
-<div class="container">
-  <h3><%= t "question.question", content: @question.content %></h3>
-  <br/>
-  <ul>
-    <% if @question.text? %>
-      <li><%= @question.answers.content %></li>
-    <% else %>
-      <% @question.answers.each do |answer| %>
-        <div class = "checkbox">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= t "question.question", content: @question.content %>
+    </h3>
+  </div>
+  <div>
+    <% @question.answers.each do |answer| %>
+      <div class="radio">
+        <% if @question.single_choice? || @question.multiple_choice? %>
+          <% if answer.is_correct? %>
+            <%= check_box_tag answer.content, "yes", true, disabled: true %>
+          <% else %>
+            <%= check_box_tag answer.content, "no", false, disabled: true %>
+          <% end %>
+          <%= answer.content %>
+        <% else %>
           <label>
-            <% if answer.is_correct? %>
-              <%= check_box_tag answer.content, "yes", true %>
-            <% else %>
-              <%= check_box_tag answer.content %>
-            <% end %>
-            <%= answer.content %>
+            <span class="list-group-item-success">
+              <%= t "result.answer_correct" %>
+              <%= answer.content %>
+            </span>
           </label>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>

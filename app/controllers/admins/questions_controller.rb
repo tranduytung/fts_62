@@ -38,7 +38,7 @@ class Admins::QuestionsController < ApplicationController
     if @question_form.validate params[:question].permit!
       @question_form.save
       flash[:success] = t "question.edit_success"
-      redirect_to admins_questions_path
+      redirect_to :back
     else
       flash.now[:danger] = t "question.edit_fail"
       load_sources
@@ -52,7 +52,7 @@ class Admins::QuestionsController < ApplicationController
     else
       flash.now[:danger] = t "question.delete_fail"
     end
-    redirect_to admins_questions_path
+    redirect_to :back
   end
 
   private
