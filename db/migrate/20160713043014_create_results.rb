@@ -5,6 +5,7 @@ class CreateResults < ActiveRecord::Migration
       t.references :exam, index: true, foreign_key: true
       t.references :question, index: true, foreign_key: true
       t.references :answer, index: true, foreign_key: true
+      t.string :answer_ids
 
       t.timestamps null: false
     end

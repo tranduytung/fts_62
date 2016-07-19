@@ -42,7 +42,9 @@ class Users::ExamsController < ApplicationController
   def update
     if @exam.update_attributes exam_params
       @exam.update_attributes spent_time: @exam.calculated_spent_time
-      @exam.unchecked! if @exam.time_out?
+      if @exam.time_out? || params[:finish]
+        @exam.unchecked!
+      end
       flash[:notice] = t "flashs.messages.submit_success"
     else
       flash[:alert] = t "flashs.messages.invalid"
@@ -52,6 +54,8 @@ class Users::ExamsController < ApplicationController
 
   private
   def exam_params
-    params.require(:exam).permit :subject_id
+    params.require(:exam).permit :subject_id,
+      results_attributes: [:id, :answer_id, answer_ids: [],
+      text_answer_attributes: [:id, :content]]
   end
 end

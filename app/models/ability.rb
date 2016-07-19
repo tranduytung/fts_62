@@ -6,8 +6,8 @@ class Ability
     case user
     when User
       can :read, :all
-      can :create, Exam
       can :manage, Question
+      can [:create, :update], Exam
     when Admin
       can :manage, :all
     end

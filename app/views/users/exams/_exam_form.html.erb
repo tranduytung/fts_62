@@ -5,10 +5,11 @@
       <br/>
       <% case ff.object.question.question_type %>
       <% when Settings.questions.multiple_choice %>
-        <%= ff.collection_check_boxes :answer_id, ff.object.question.answers,
-          :id, :content, {}, {disabled: state} do |cb| %>
-          <%= cb.label(class: "check_box") {cb.check_box(class: "cb") +
-            cb.text} %>
+        <% ff.object.question.answers.each do |answer| %>
+          <%= ff.check_box :answer_ids,
+            {checked: ff.object.answer_ids.include?(answer.id.to_s),
+            multiple: true, disabled: state}, answer.id, false %>
+          <%= answer.content %><br/>
         <% end %>
       <% when Settings.questions.single_choice %>
         <%= ff.collection_radio_buttons :answer_id, ff.object.question.answers,
@@ -20,9 +21,21 @@
           <%= fff.text_area :content, readonly: state, class: "form-control" %>
         <% end %>
       <% end %>
-      <br/>
+      <% if f.object.checked? %>
+        <span class="label label-<%= result_label ff.object %>">
+          <%= ff.object.is_correct? ? t("result.correct") : t("result.incorrect") %>
+        </span>
+      <% end %>
+      <hr/>
     <% end %>
   </ol>
+  <% unless state %>
+    <%= f.submit t("exam.buttons.save"), class: "btn btn-primary btn-submit
+      col-md-4" %>
+    <%= f.submit t("exam.buttons.finish"),
+      class: "btn btn-danger btn-submit pull-right", name: 'finish',
+      data: {confirm: t("exam.warning_finish")} %>
+  <% end %>
 <% end %>
 <div class="text-center">
   <%= link_to t("exam.buttons.back_to_all"), users_exams_path,

@@ -14,14 +14,15 @@
     </div>
 
     <div class="col-md-3">
-      <div class="col-md-2">
+      <div class="col-md-3 col-md-offset-1">
+        <br>
         <%= t "search.score" %>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <%= t "search.score_form" %>
         <%= f.text_field :score_gteq, class: "form-control" %>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <%= t "search.score_to" %>
         <%= f.text_field :score_lteq, class: "form-control" %>
       </div>
