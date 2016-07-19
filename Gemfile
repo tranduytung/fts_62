@@ -20,6 +20,7 @@ gem "kaminari-bootstrap", "~> 3.0.1"
 gem "omniauth-github"
 gem "reform"
 gem "reform-rails"
+gem "jquery-countdown-rails"
 
 group :development, :test do
   gem "byebug"

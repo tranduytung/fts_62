@@ -382,6 +382,22 @@ select {
       margin-right: 5px;
     }
   }
+
+  #clock {
+    font-size: 16px;
+    font-weight: bold;
+    border: none !important;
+    background-color: inherit !important;
+  }
+
+  .timer {
+    border: 1px solid #E6E6E6;
+    background-color: #CECECE;
+    float: right;
+    position: fixed;
+    right: 70px;
+    top: 70px;
+  }
 }
 
 .border-none {

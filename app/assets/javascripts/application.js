@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require jquery.countdown
+//= require countdown
 //= require_tree .
 
 $(document).on('ready', function() {

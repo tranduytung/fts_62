@@ -3,14 +3,16 @@
   <div class="col-md-8 col-md-offset-1">
     <%= t "exam.start_date" %>
     <%= l @exam.started_at, format: :short %></br>
-    <% if @exam.checked? %>
-      <%= t "exam.result" %>
-      <span><%= @exam.score %></span>
-    <% end %>
+    <%= t "exam.your_score", score: @exam.score if @exam.checked? %>
     <div class="text-center">
       <h2><%= @subject.content %></h2>
     </div>
     <hr>
+    <%= hidden_field_tag :remaining_time, @remaining_time %>
     <%= render "exam_form", state: @exam.time_out? %>
+  </div>
+  <div class="col-md-2 col-md-offset-1 timer">
+    <h4><%= t "exam.remaining_time" %></h4>
+    <div id="clock"></div>
   </div>
 </div>
