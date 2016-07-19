@@ -30,8 +30,8 @@
     <% end %>
   </ol>
   <% unless state %>
-    <%= f.submit t("exam.buttons.save"), class: "btn btn-primary btn-submit
-      col-md-4" %>
+    <%= f.submit t("exam.buttons.save"), class: "btn btn-primary submit-time-out
+      btn-submit col-md-4" %>
     <%= f.submit t("exam.buttons.finish"),
       class: "btn btn-danger btn-submit pull-right", name: 'finish',
       data: {confirm: t("exam.warning_finish")} %>

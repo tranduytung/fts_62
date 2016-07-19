@@ -75,5 +75,5 @@ var ready = function() {
   }
 };
 
-$(document).on('ready', ready);
+document.addEventListener("turbolinks:load", ready);
 $(document).on('change', ready);

@@ -28,6 +28,11 @@ class Exam < ActiveRecord::Base
     end
   end
 
+  def remaining_time
+    unchecked? || checked? ? 0 : subject.duration * 60 - (Time.zone.now -
+      started_at).to_i
+  end
+
   def spent_time_format
     Time.at(spent_time).utc.strftime I18n.t("time.formats.clock")
   end

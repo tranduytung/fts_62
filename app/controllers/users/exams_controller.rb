@@ -22,6 +22,7 @@ class Users::ExamsController < ApplicationController
       @exam.update_attributes started_at: Time.zone.now
       @exam.testing!
     end
+    @remaining_time = @exam.remaining_time
   end
 
   def create
@@ -45,9 +46,9 @@ class Users::ExamsController < ApplicationController
       if @exam.time_out? || params[:finish]
         @exam.unchecked!
       end
-      flash[:notice] = t "flashs.messages.submit_success"
+      flash[:notice] = t "exam.submit_success"
     else
-      flash[:alert] = t "flashs.messages.invalid"
+      flash[:alert] = t "exam.invalid"
     end
     redirect_to users_exams_url
   end

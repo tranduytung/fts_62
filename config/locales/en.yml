@@ -192,6 +192,8 @@ en:
     submit_success: "Your answers has been submitted"
     submit_fail: "Submission failed. Please try again"
     warning_finish: "Are you sure you want to finish this exam?"
+    remaining_time: "Remaining Time:"
+    your_score: "Your score is: %{score}"
 
   suggested_question:
     check: "Check"
