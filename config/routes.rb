@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     root "exams#index"
     resources :exams, only: [:index, :edit, :update]
     resources :subjects
-    resources :users, only: :index
+    resources :users
     resources :questions
     resources :suggested_questions, only: [:index, :edit, :update]
   end

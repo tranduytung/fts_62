@@ -1,0 +1,24 @@
+<%= form_for [:admins, @user] do |f| %>
+  <%= render "shared/error_messages", object: @user %>
+
+  <%= f.label :name %><br/>
+  <%= f.text_field :name, autofocus: true, class: "form-control" %>
+
+  <%= f.label :chatwork_id %>
+  <%= f.text_field :chatwork_id, autofocus: true, class: "form-control" %>
+
+  <%= f.label :email %><br/>
+  <%= f.email_field :email, autofocus: true, class: "form-control" %>
+
+  <%= f.label :password %><br/>
+  <%= f.password_field :password, autocomplete: "off",
+    class: "form-control" %>
+
+  <%= f.label :password_confirmation %><br/>
+  <%= f.password_field :password_confirmation, autocomplete: "off",
+    class: "form-control" %>
+
+  <div class="actions">
+    <%= f.submit t("admin.new_user"), class: "btn btn-primary" %>
+  </div>
+<% end %>

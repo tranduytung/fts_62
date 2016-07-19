@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user_or_admin!
 
   def current_ability
     @current_ability ||= Ability.new(
@@ -15,6 +16,11 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:danger] = t "not_authorized"
+    redirect_to root_url
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:danger] = t "not_found"
     redirect_to root_url
   end
 
@@ -34,6 +40,15 @@ class ApplicationController < ActionController::Base
       "user_application"
     else
       "application"
+    end
+  end
+
+  def authenticate_user_or_admin!
+    namespace = controller_path.split("/").first
+    if namespace == "users"
+      authenticate_user!
+    elsif namespace == "admins"
+      authenticate_admin!
     end
   end
 end

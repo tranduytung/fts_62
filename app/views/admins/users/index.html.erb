@@ -1,21 +1,21 @@
 <% provide :title, t("admin.all_users") %>
 <div class="row">
   <h1><%= t "admin.all_users" %></h1>
+  <hr/>
+    <%= link_to t("admin.new_user"), new_admins_user_path,
+      class: "btn btn-success icon-trash icon-white" %>
+  <hr/>
   <%= render "admins/users/search_form" %>
   <table class="table table-bordered">
     <thead>
       <tr>
         <th class="center"><%= t "user.name" %></th>
         <th class="center"><%= t "user.email" %></th>
+        <th class="center", colspan="2"><%= t "user.actions" %></th>
       </tr>
     </thead>
     <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td class="center"><%= user.name %></td>
-          <td class="center"><%= user.email %></td>
-        </tr>
-      <% end %>
+      <%= render @users %>
     </tbody>
   </table>
   <div class="text-center">

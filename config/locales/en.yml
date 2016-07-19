@@ -36,6 +36,8 @@ en:
     tool_box: "Tool Box"
     user: "User"
     all_users: "All Users"
+    new_user: "New User"
+    edit_user: "Edit User"
     exam: "Exam"
     all_exams: "All Exams"
     subject: "Subject"
@@ -122,6 +124,14 @@ en:
       fields to complete your registration"
     all_exams: "All Exams"
     your_questions: "Your Questions"
+    add_success: "Add new user successfully"
+    add_fail: "Add new user failed"
+    confirm: "You sure delete this user?"
+    actions: "Actions"
+    edit_success: "Edit user successfully"
+    edit_failed: "Edit user failed"
+    delete_success: "Delete user successfully"
+    delete_fail: "Delete user failed"
 
   devise:
     minimum_password_length: "%{length} characters minimum"
@@ -189,6 +199,7 @@ en:
 
   not_authorized: "You are not authorized to access this page."
   number: "Number"
+  not_found: "The record not found"
 
   approved: "Approved"
   rejected: "Rejected"
